@@ -6,3 +6,62 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+:root {
+  --color-bg: #ffffff;
+  --color-text: #2c2c2a;
+  --color-text-secondary: #5f5e5a;
+  --color-border: #e3e1d9;
+  --color-card-bg: #faf9f5;
+
+  --color-navy: #26215c;
+  --color-purple: #534ab7;
+  --color-purple-bg: #f1effb;
+  --color-teal: #1d9e75;
+  --color-coral: #d85a30;
+  --color-coral-bg: #fbede7;
+  --color-amber: #ba7517;
+
+  --radius: 12px;
+  --max-width: 900px;
+}
+
+.page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--color-navy);
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--color-purple);
+}
+
+.navlinks a {
+  margin-left: 26px;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+}
+
+.navlinks a:hover {
+  color: var(--color-navy);
+}
+
+.navlinks a.active {
+  color: var(--color-navy);
+  font-weight: bold;
+}
