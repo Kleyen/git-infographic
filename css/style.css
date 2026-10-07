@@ -268,6 +268,7 @@ header {
   border-radius: var(--radius);
   padding: 28px 34px;
 }
+
 .feature-card h2 {
   color: var(--color-text);
   font-size: 25px;
