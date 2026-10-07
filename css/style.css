@@ -254,3 +254,29 @@ header {
     margin-right: 20px;
   }
 }
+
+.git-features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding: 0 60px 40px;
+}
+
+.feature-card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 28px 34px;
+}
+.feature-card h2 {
+  color: var(--color-text);
+  font-size: 25px;
+  margin: 0 0 8px;
+}
+
+.feature-card p {
+  color: var(--color-secondary);
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+}
