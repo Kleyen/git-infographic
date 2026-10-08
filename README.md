@@ -33,7 +33,6 @@ npm ci
 npm run lint        # all checks
 npm run lint:html   # validate HTML
 npm run lint:css    # lint CSS
-npm run lint:js     # syntax-check JavaScript
 ```
 
 CI (`.github/workflows/ci.yml`) runs the lint suite and an offline [lychee](https://github.com/lycheeverse/lychee) link check on every push and pull request.
