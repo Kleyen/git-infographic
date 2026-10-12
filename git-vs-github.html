@@ -5,82 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Git vs GitHub</title>
     <link rel="stylesheet" href="css/style.css" />
-    <script src="scripts/script.js" defer></script>
   </head>
   <body>
+    <nav class="nav">
+      <a href="index.html" class="logo">
+        <img src="assets/git-svgrepo-com.svg" alt="git logo" class="logo-img" />
+        git<span>101</span></a
+      >
+      <div class="navlinks">
+        <a href="index.html">Home</a>
+        <a href="git-vs-github.html" class="active">Git vs GitHub</a>
+        <a href="commands.html">Commands</a>
+      </div>
+    </nav>
     <div class="page">
-      <nav class="nav">
-        <a href="index.html" class="logo">
-          <img
-            src="assets/git-svgrepo-com.svg"
-            alt="git logo"
-            class="logo-img"
-          />
-          git<span>101</span></a
-        >
-        <div class="navlinks">
-          <a href="index.html">Home</a>
-          <a href="git-vs-github.html" class="active">Git vs GitHub</a>
-          <a href="commands.html">Commands</a>
-        </div>
-      </nav>
+      <main>
+        <header class="git-header">
+          <div class="Git-vs-GitHub">
+            <h1>Git vs GitHub</h1>
+          </div>
+          <p>Two different things that are often confused for one another.</p>
+        </header>
+        <section class="comparison">
+          <div class="git">
+            <img
+              src="assets/git-svgrepo-com.svg"
+              alt="git logo"
+              class="git-logo"
+            />
+            <p>
+              Git is a version control system that allows developers to track
+              changes in their codebase, collaborate with others, and manage
+              different versions of their projects. It is a command-line tool
+              that runs locally on a developer's machine.
+            </p>
+          </div>
+
+          <div class="github">
+            <img
+              src="assets/github.svg"
+              alt="github logo"
+              class="github-logo"
+            />
+            <p class="content">
+              GitHub, on the other hand, is a web-based platform that provides
+              hosting for Git repositories. It offers additional features such
+              as issue tracking, pull requests, and collaboration tools. GitHub
+              allows developers to share their code with others, contribute to
+              open-source projects, and showcase their work.
+            </p>
+          </div>
+        </section>
+        <section class="summary">
+          <h2>Summary</h2>
+          <p class="summary-content">
+            In summary, Git is the underlying technology for version control,
+            while GitHub is a platform that leverages Git to provide a
+            collaborative environment for developers.
+          </p>
+        </section>
+
+        <section class="creator">
+          <div class="creator-profile">
+            <p>LT</p>
+          </div>
+          <div class="creator-content">
+            <div class="linus">MEET THE CREATOR</div>
+            <h3 class="creator-name">Linus Torvalds</h3>
+            <p>
+              Also the creator of the Linux kernel, Torvalds built git in 2005
+              to facilitate collaboration, which GitHub later popularized.
+            </p>
+          </div>
+        </section>
+      </main>
     </div>
-    <main>
-      <header class="git-header">
-        <div class="Git-vs-GitHub">
-          <h1>Git vs GitHub</h1>
-        </div>
-        <p>Two different things that are often confused for one another.</p>
-      </header>
-      <section class="comparison">
-        <div class="git">
-          <img
-            src="assets/git-svgrepo-com.svg"
-            alt="git logo"
-            class="git-logo"
-          />
-          <p>
-            Git is a version control system that allows developers to track
-            changes in their codebase, collaborate with others, and manage
-            different versions of their projects. It is a command-line tool that
-            runs locally on a developer's machine.
-          </p>
-        </div>
-
-        <div class="github">
-          <img src="assets/github.svg" alt="github logo" class="github-logo" />
-          <p class="content">
-            GitHub, on the other hand, is a web-based platform that provides
-            hosting for Git repositories. It offers additional features such as
-            issue tracking, pull requests, and collaboration tools. GitHub
-            allows developers to share their code with others, contribute to
-            open-source projects, and showcase their work.
-          </p>
-        </div>
-      </section>
-      <section class="summary">
-        <h2>Summary</h2>
-        <p class="summary-content">
-          In summary, Git is the underlying technology for version control,
-          while GitHub is a platform that leverages Git to provide a
-          collaborative environment for developers.
-        </p>
-      </section>
-
-      <section class="creator">
-        <div class="creator-profile">
-          <p>LT</p>
-        </div>
-        <div class="creator-content">
-          <div class="linus">MEET THE CREATOR</div>
-          <h3 class="creator-name">Linus Torvalds</h3>
-          <p>
-            Also the creator of the Linux kernel, Torvalds built git in 2005 to
-            facilitate collaboration, which GitHub later popularized.
-          </p>
-        </div>
-      </section>
-    </main>
     <footer class="footer">
       <p>
         Git: Saving developers from "final_version_v2_FINAL.zip" since 2005.
