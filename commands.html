@@ -5,105 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Commands</title>
     <link rel="stylesheet" href="css/style.css" />
-    <script src="scripts/script.js" defer></script>
   </head>
   <body>
+    <nav class="nav">
+      <a href="index.html" class="logo">
+        <img src="assets/git-svgrepo-com.svg" alt="git logo" class="logo-img" />
+        git<span>101</span>
+      </a>
+      <div class="navlinks">
+        <a href="index.html">Home</a>
+        <a href="git-vs-github.html">Git vs GitHub</a>
+        <a href="commands.html" class="active">Commands</a>
+      </div>
+    </nav>
+
     <div class="page">
-      <nav class="nav">
-        <a href="index.html" class="logo">
-          <img
-            src="assets/git-svgrepo-com.svg"
-            alt="git logo"
-            class="logo-img"
-          />
-          git<span>101</span>
-        </a>
-        <div class="navlinks">
-          <a href="index.html">Home</a>
-          <a href="git-vs-github.html">Git vs GitHub</a>
-          <a href="commands.html" class="active">Commands</a>
-        </div>
-      </nav>
+      <main class="commands">
+        <header class="commands-header">
+          <h1>Commands</h1>
+          <p>The everyday git commands, at a glance.</p>
+        </header>
+
+        <section class="command-group">
+          <h2>Get started</h2>
+          <ul class="command-list">
+            <li class="command-card">
+              <code>git init</code>
+              <p>Start a new repository in the current folder.</p>
+            </li>
+            <li class="command-card">
+              <code>git clone &lt;url&gt;</code>
+              <p>Copy an existing repository to your machine.</p>
+            </li>
+            <li class="command-card">
+              <code>git status</code>
+              <p>See which files changed and what is staged.</p>
+            </li>
+          </ul>
+        </section>
+
+        <section class="command-group">
+          <h2>Save your work</h2>
+          <ul class="command-list">
+            <li class="command-card">
+              <code>git add .</code>
+              <p>Stage all changes for the next commit.</p>
+            </li>
+            <li class="command-card">
+              <code>git commit -m "message"</code>
+              <p>Save a snapshot of the staged changes.</p>
+            </li>
+            <li class="command-card">
+              <code>git log --oneline</code>
+              <p>Browse the commit history in a compact list.</p>
+            </li>
+          </ul>
+        </section>
+
+        <section class="command-group">
+          <h2>Branch and merge</h2>
+          <ul class="command-list">
+            <li class="command-card">
+              <code>git branch &lt;name&gt;</code>
+              <p>Create a new branch.</p>
+            </li>
+            <li class="command-card">
+              <code>git switch &lt;name&gt;</code>
+              <p>Move to another branch.</p>
+            </li>
+            <li class="command-card">
+              <code>git merge &lt;name&gt;</code>
+              <p>Combine another branch into the current one.</p>
+            </li>
+          </ul>
+        </section>
+
+        <section class="command-group">
+          <h2>Share and undo</h2>
+          <ul class="command-list">
+            <li class="command-card">
+              <code>git push</code>
+              <p>Upload your commits to the remote repository.</p>
+            </li>
+            <li class="command-card">
+              <code>git pull</code>
+              <p>Download and merge the latest remote changes.</p>
+            </li>
+            <li class="command-card">
+              <code>git revert &lt;commit&gt;</code>
+              <p>Undo a commit by adding a new one.</p>
+            </li>
+          </ul>
+        </section>
+      </main>
     </div>
-
-    <main class="commands">
-      <header class="commands-header">
-        <h1>Commands</h1>
-        <p>The everyday git commands, at a glance.</p>
-      </header>
-
-      <section class="command-group">
-        <h2>Get started</h2>
-        <ul class="command-list">
-          <li class="command-card">
-            <code>git init</code>
-            <p>Start a new repository in the current folder.</p>
-          </li>
-          <li class="command-card">
-            <code>git clone &lt;url&gt;</code>
-            <p>Copy an existing repository to your machine.</p>
-          </li>
-          <li class="command-card">
-            <code>git status</code>
-            <p>See which files changed and what is staged.</p>
-          </li>
-        </ul>
-      </section>
-
-      <section class="command-group">
-        <h2>Save your work</h2>
-        <ul class="command-list">
-          <li class="command-card">
-            <code>git add .</code>
-            <p>Stage all changes for the next commit.</p>
-          </li>
-          <li class="command-card">
-            <code>git commit -m "message"</code>
-            <p>Save a snapshot of the staged changes.</p>
-          </li>
-          <li class="command-card">
-            <code>git log --oneline</code>
-            <p>Browse the commit history in a compact list.</p>
-          </li>
-        </ul>
-      </section>
-
-      <section class="command-group">
-        <h2>Branch and merge</h2>
-        <ul class="command-list">
-          <li class="command-card">
-            <code>git branch &lt;name&gt;</code>
-            <p>Create a new branch.</p>
-          </li>
-          <li class="command-card">
-            <code>git switch &lt;name&gt;</code>
-            <p>Move to another branch.</p>
-          </li>
-          <li class="command-card">
-            <code>git merge &lt;name&gt;</code>
-            <p>Combine another branch into the current one.</p>
-          </li>
-        </ul>
-      </section>
-
-      <section class="command-group">
-        <h2>Share and undo</h2>
-        <ul class="command-list">
-          <li class="command-card">
-            <code>git push</code>
-            <p>Upload your commits to the remote repository.</p>
-          </li>
-          <li class="command-card">
-            <code>git pull</code>
-            <p>Download and merge the latest remote changes.</p>
-          </li>
-          <li class="command-card">
-            <code>git revert &lt;commit&gt;</code>
-            <p>Undo a commit by adding a new one.</p>
-          </li>
-        </ul>
-      </section>
-    </main>
 
     <footer class="footer">
       <p>
