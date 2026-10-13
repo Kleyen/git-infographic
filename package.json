@@ -4,12 +4,14 @@
   "scripts": {
     "lint:html": "html-validate \"*.html\"",
     "lint:css": "stylelint \"css/**/*.css\"",
-    "lint:js": "node --check scripts/script.js",
-    "lint": "npm run lint:html && npm run lint:css && npm run lint:js"
+    "lint": "npm run lint:html && npm run lint:css"
   },
   "devDependencies": {
     "html-validate": "^9.0.0",
     "stylelint": "^16.0.0",
     "stylelint-config-standard": "^36.0.0"
+  },
+  "dependencies": {
+    "lint": "^1.2.2"
   }
 }

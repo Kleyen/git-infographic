@@ -3,102 +3,814 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Commands</title>
+    <meta
+      name="description"
+      content="A visual quick reference to essential Git commands, from starting a repository to sharing commits on GitHub."
+    />
+    <link rel="icon" href="assets/git-svgrepo-com.svg" type="image/svg+xml" />
+    <title>git101 — Commands</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <nav class="nav">
       <a href="index.html" class="logo">
-        <img src="assets/git-svgrepo-com.svg" alt="git logo" class="logo-img" />
+        <img src="assets/git-logo-nav.svg" alt="" class="logo-img" />
         git<span>101</span>
       </a>
       <div class="navlinks">
         <a href="index.html">Home</a>
         <a href="git-vs-github.html">Git vs GitHub</a>
-        <a href="commands.html" class="active">Commands</a>
+        <a href="commands.html" class="active" aria-current="page">Commands</a>
       </div>
     </nav>
 
-    <div class="page">
-      <main class="commands">
-        <header class="commands-header">
-          <h1>Commands</h1>
-          <p>The everyday git commands, at a glance.</p>
-        </header>
+    <main class="commands">
+      <header class="commands-header">
+        <p class="commands-eyebrow">
+          <span aria-hidden="true"></span> THE GIT TOOLKIT
+        </p>
+        <h1>Git commands,<br /><span>made visual.</span></h1>
+        <p class="commands-intro">
+          Learn what each command does, where it fits, and when to reach for it.
+        </p>
+        <div class="commands-hero-meta" role="group" aria-label="Guide details">
+          <span class="meta-pill"
+            ><span aria-hidden="true"></span> 12 essential commands</span
+          >
+          <span class="meta-note">A quick-reference guide</span>
+        </div>
+      </header>
 
-        <section class="command-group">
-          <h2>Get started</h2>
-          <ul class="command-list">
-            <li class="command-card">
-              <code>git init</code>
-              <p>Start a new repository in the current folder.</p>
-            </li>
-            <li class="command-card">
-              <code>git clone &lt;url&gt;</code>
-              <p>Copy an existing repository to your machine.</p>
-            </li>
-            <li class="command-card">
-              <code>git status</code>
-              <p>See which files changed and what is staged.</p>
-            </li>
-          </ul>
-        </section>
+      <section class="command-map" aria-labelledby="command-map-title">
+        <div class="section-heading section-heading-centered">
+          <p class="section-kicker">01 / FOLLOW THE FLOW</p>
+          <h2 id="command-map-title">From your files to GitHub</h2>
+          <p>
+            Each command moves your work one step closer to a shared repository.
+          </p>
+        </div>
 
-        <section class="command-group">
-          <h2>Save your work</h2>
-          <ul class="command-list">
-            <li class="command-card">
+        <div
+          class="command-flow"
+          role="group"
+          aria-label="Git workflow from working directory through staging and local repository to a remote repository"
+        >
+          <article class="command-stage">
+            <div class="command-stage-top">
+              <span class="command-stage-number">01</span>
+              <svg
+                class="stage-icon"
+                viewBox="0 0 32 32"
+                aria-hidden="true"
+                fill="none"
+              >
+                <path
+                  d="M7 3.75h11l7 7V28.25H7z"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M18 4v7h7M11 17h10M11 21h7"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+            <h3>Working directory</h3>
+            <p>The files you're creating or editing.</p>
+            <div class="stage-action">
+              <span>SELECT CHANGES</span>
               <code>git add .</code>
-              <p>Stage all changes for the next commit.</p>
-            </li>
-            <li class="command-card">
-              <code>git commit -m "message"</code>
-              <p>Save a snapshot of the staged changes.</p>
-            </li>
-            <li class="command-card">
-              <code>git log --oneline</code>
-              <p>Browse the commit history in a compact list.</p>
-            </li>
-          </ul>
-        </section>
+            </div>
+          </article>
 
-        <section class="command-group">
-          <h2>Branch and merge</h2>
-          <ul class="command-list">
-            <li class="command-card">
-              <code>git branch &lt;name&gt;</code>
-              <p>Create a new branch.</p>
-            </li>
-            <li class="command-card">
-              <code>git switch &lt;name&gt;</code>
-              <p>Move to another branch.</p>
-            </li>
-            <li class="command-card">
-              <code>git merge &lt;name&gt;</code>
-              <p>Combine another branch into the current one.</p>
-            </li>
-          </ul>
-        </section>
+          <article class="command-stage">
+            <div class="command-stage-top">
+              <span class="command-stage-number">02</span>
+              <svg
+                class="stage-icon"
+                viewBox="0 0 32 32"
+                aria-hidden="true"
+                fill="none"
+              >
+                <rect
+                  x="5"
+                  y="5"
+                  width="22"
+                  height="22"
+                  rx="4"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                />
+                <path
+                  d="m10 16 4 4 8-9"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <h3>Staging area</h3>
+            <p>Changes selected for your next snapshot.</p>
+            <div class="stage-action">
+              <span>SAVE A SNAPSHOT</span>
+              <code>git commit</code>
+            </div>
+          </article>
 
-        <section class="command-group">
-          <h2>Share and undo</h2>
-          <ul class="command-list">
-            <li class="command-card">
+          <article class="command-stage">
+            <div class="command-stage-top">
+              <span class="command-stage-number">03</span>
+              <svg
+                class="stage-icon"
+                viewBox="0 0 32 32"
+                aria-hidden="true"
+                fill="none"
+              >
+                <path
+                  d="M9 7v18M9 12h10a4 4 0 0 0 4-4V7M9 20h10a4 4 0 0 1 4 4v1"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+                <circle
+                  cx="9"
+                  cy="5.5"
+                  r="2.5"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                />
+                <circle
+                  cx="23"
+                  cy="5.5"
+                  r="2.5"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                />
+                <circle
+                  cx="23"
+                  cy="26.5"
+                  r="2.5"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                />
+              </svg>
+            </div>
+            <h3>Local repository</h3>
+            <p>Commits and project history saved on your computer.</p>
+            <div class="stage-action">
+              <span>SHARE COMMITS</span>
               <code>git push</code>
-              <p>Upload your commits to the remote repository.</p>
+            </div>
+          </article>
+
+          <article class="command-stage command-stage-remote">
+            <div class="command-stage-top">
+              <span class="command-stage-number">04</span>
+              <img
+                src="assets/github.svg"
+                alt=""
+                class="stage-icon stage-icon-github"
+              />
+            </div>
+            <h3>Remote repository</h3>
+            <p>Your shared project, hosted on GitHub or another Git server.</p>
+            <div class="stage-action stage-action-remote">
+              <span>DESTINATION</span>
+              <strong>GitHub</strong>
+            </div>
+          </article>
+        </div>
+
+        <div class="command-quick-tips">
+          <div class="quick-tip">
+            <span class="quick-tip-mark" aria-hidden="true">?</span>
+            <p>
+              <code>git status</code
+              ><span>Check what changed before you save.</span>
+            </p>
+          </div>
+          <div class="quick-tip">
+            <span class="quick-tip-mark quick-tip-mark-dark" aria-hidden="true"
+              >↻</span
+            >
+            <p>
+              <code>git pull</code
+              ><span>Bring the latest remote changes into your branch.</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="command-library" aria-labelledby="command-library-title">
+        <div class="library-heading">
+          <div>
+            <p class="section-kicker">02 / THE QUICK REFERENCE</p>
+            <h2 id="command-library-title">Find the command you need</h2>
+          </div>
+          <p>Grouped by task, so you can scan first and remember faster.</p>
+        </div>
+
+        <section class="command-group" aria-labelledby="group-start-title">
+          <div class="command-group-heading">
+            <span class="group-index">01</span>
+            <div class="group-title-wrap">
+              <h3 id="group-start-title">Get started</h3>
+              <p>Set up a repository and check its current state.</p>
+            </div>
+            <span class="group-count">03 COMMANDS</span>
+          </div>
+          <ul class="command-list">
+            <li class="command-card">
+              <div class="command-card-top">
+                <span class="command-card-label">CREATE</span
+                ><span class="command-card-number">01</span>
+              </div>
+              <div class="command-visual">
+                <svg viewBox="0 0 96 42" fill="none" aria-hidden="true">
+                  <path
+                    d="M12 10h25l6 6h31v18H12z"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M12 16h62"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    opacity=".35"
+                  />
+                  <path
+                    d="M53 21v12M47 27h12"
+                    stroke="var(--color-accent)"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+              <code>git init</code>
+              <p>Start a new Git repository in the current folder.</p>
             </li>
             <li class="command-card">
-              <code>git pull</code>
-              <p>Download and merge the latest remote changes.</p>
+              <div class="command-card-top">
+                <span class="command-card-label">COPY</span
+                ><span class="command-card-number">02</span>
+              </div>
+              <div class="command-visual">
+                <svg viewBox="0 0 96 42" fill="none" aria-hidden="true">
+                  <rect
+                    x="6"
+                    y="9"
+                    width="28"
+                    height="24"
+                    rx="5"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                  />
+                  <circle cx="16" cy="16" r="2.2" fill="var(--color-accent)" />
+                  <path
+                    d="M16 18.5v8m0-4h8m0 0v-4m0 4v4"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M40 21h19m-6-6 6 6-6 6"
+                    stroke="var(--color-accent)"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M67 13h15l6 6v14H67z"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M82 13v6h6"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                  />
+                  <path
+                    d="M72 25h11M72 29h8"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    opacity=".65"
+                  />
+                </svg>
+              </div>
+              <code>git clone &lt;url&gt;</code>
+              <p>Copy an existing repository to your computer.</p>
             </li>
             <li class="command-card">
-              <code>git revert &lt;commit&gt;</code>
-              <p>Undo a commit by adding a new one.</p>
+              <div class="command-card-top">
+                <span class="command-card-label">INSPECT</span
+                ><span class="command-card-number">03</span>
+              </div>
+              <div class="command-visual">
+                <svg viewBox="0 0 96 42" fill="none" aria-hidden="true">
+                  <path
+                    d="M26 5h25l10 10v22H26z"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M51 5v10h10M33 22h18M33 27h12"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                    opacity=".65"
+                  />
+                  <circle
+                    cx="72"
+                    cy="27"
+                    r="9"
+                    fill="var(--color-accent-bg)"
+                    stroke="var(--color-accent)"
+                    stroke-width="1.7"
+                  />
+                  <path
+                    d="m68 27 2.6 2.7 5-5.6"
+                    stroke="var(--color-accent)"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <code>git status</code>
+              <p>See which files changed and which changes are staged.</p>
             </li>
           </ul>
         </section>
-      </main>
-    </div>
+
+        <section class="command-group" aria-labelledby="group-save-title">
+          <div class="command-group-heading">
+            <span class="group-index">02</span>
+            <div class="group-title-wrap">
+              <h3 id="group-save-title">Save your work</h3>
+              <p>Choose changes, create snapshots, and review history.</p>
+            </div>
+            <span class="group-count">03 COMMANDS</span>
+          </div>
+          <ul class="command-list">
+            <li class="command-card">
+              <div class="command-card-top">
+                <span class="command-card-label">STAGE</span
+                ><span class="command-card-number">04</span>
+              </div>
+              <div class="command-visual">
+                <svg viewBox="0 0 96 42" fill="none" aria-hidden="true">
+                  <path
+                    d="M8 8h19l5 5h13v20H8z"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M32 23h16m-5-5 5 5-5 5"
+                    stroke="var(--color-accent)"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <rect
+                    x="54"
+                    y="13"
+                    width="31"
+                    height="21"
+                    rx="4"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                  />
+                  <path
+                    d="M61 20h17M61 25h11"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    opacity=".6"
+                  />
+                  <path
+                    d="M69.5 4v8m-4-4h8"
+                    stroke="var(--color-accent)"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+              <code>git add .</code>
+              <p>
+                Stage all changes in the current folder for the next commit.
+              </p>
+            </li>
+            <li class="command-card">
+              <div class="command-card-top">
+                <span class="command-card-label">SNAPSHOT</span
+                ><span class="command-card-number">05</span>
+              </div>
+              <div class="command-visual">
+                <svg viewBox="0 0 96 42" fill="none" aria-hidden="true">
+                  <path
+                    d="M12 22h72"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    opacity=".3"
+                  />
+                  <circle
+                    cx="22"
+                    cy="22"
+                    r="5"
+                    fill="var(--color-card-bg)"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                  />
+                  <circle
+                    cx="48"
+                    cy="22"
+                    r="7"
+                    fill="var(--color-accent-bg)"
+                    stroke="var(--color-accent)"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="75"
+                    cy="22"
+                    r="5"
+                    fill="var(--color-card-bg)"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                  />
+                  <path
+                    d="M48 4v7m-4-3 4 3 4-3"
+                    stroke="var(--color-accent)"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <code>git commit -m "message"</code>
+              <p>Save staged changes with a short, meaningful message.</p>
+            </li>
+            <li class="command-card">
+              <div class="command-card-top">
+                <span class="command-card-label">HISTORY</span
+                ><span class="command-card-number">06</span>
+              </div>
+              <div class="command-visual">
+                <svg viewBox="0 0 96 42" fill="none" aria-hidden="true">
+                  <path
+                    d="M17 7v29"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    opacity=".5"
+                  />
+                  <circle
+                    cx="17"
+                    cy="10"
+                    r="4"
+                    fill="var(--color-accent-bg)"
+                    stroke="var(--color-accent)"
+                    stroke-width="1.7"
+                  />
+                  <circle
+                    cx="17"
+                    cy="21"
+                    r="3"
+                    fill="var(--color-card-bg)"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+                  <circle
+                    cx="17"
+                    cy="32"
+                    r="3"
+                    fill="var(--color-card-bg)"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    d="M28 10h42M28 21h33M28 32h38"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    opacity=".65"
+                  />
+                  <path
+                    d="M75 7h9v6h-9z"
+                    fill="var(--color-accent-bg)"
+                    stroke="var(--color-accent)"
+                    stroke-width="1.5"
+                  />
+                </svg>
+              </div>
+              <code>git log --oneline</code>
+              <p>Review recent commits in a compact list.</p>
+            </li>
+          </ul>
+        </section>
+
+        <section class="command-group" aria-labelledby="group-branch-title">
+          <div class="command-group-heading">
+            <span class="group-index">03</span>
+            <div class="group-title-wrap">
+              <h3 id="group-branch-title">Branch and merge</h3>
+              <p>Work on features separately, then combine changes.</p>
+            </div>
+            <span class="group-count">03 COMMANDS</span>
+          </div>
+          <ul class="command-list">
+            <li class="command-card">
+              <div class="command-card-top">
+                <span class="command-card-label">CREATE BRANCH</span
+                ><span class="command-card-number">07</span>
+              </div>
+              <div class="command-visual">
+                <svg viewBox="0 0 96 42" fill="none" aria-hidden="true">
+                  <path
+                    d="M23 6v30M23 15h22a12 12 0 0 0 12-12M23 28h22a12 12 0 0 1 12 12"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                  <circle
+                    cx="23"
+                    cy="6"
+                    r="4"
+                    fill="var(--color-accent-bg)"
+                    stroke="var(--color-accent)"
+                    stroke-width="1.8"
+                  />
+                  <circle
+                    cx="57"
+                    cy="3"
+                    r="4"
+                    fill="var(--color-card-bg)"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                  />
+                  <circle
+                    cx="57"
+                    cy="39"
+                    r="4"
+                    fill="var(--color-card-bg)"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                  />
+                  <path
+                    d="M68 12h17M68 17h11"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                    opacity=".45"
+                  />
+                </svg>
+              </div>
+              <code>git branch &lt;name&gt;</code>
+              <p>Create a branch for a feature or experiment.</p>
+            </li>
+            <li class="command-card">
+              <div class="command-card-top">
+                <span class="command-card-label">SWITCH</span
+                ><span class="command-card-number">08</span>
+              </div>
+              <div class="command-visual">
+                <svg viewBox="0 0 96 42" fill="none" aria-hidden="true">
+                  <path
+                    d="M10 11h68m-6-6 6 6-6 6"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M86 31H18m6-6-6 6 6 6"
+                    stroke="var(--color-accent)"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <circle
+                    cx="10"
+                    cy="11"
+                    r="3.5"
+                    fill="var(--color-accent-bg)"
+                    stroke="var(--color-accent)"
+                    stroke-width="1.5"
+                  />
+                  <circle
+                    cx="86"
+                    cy="31"
+                    r="3.5"
+                    fill="var(--color-card-bg)"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+                </svg>
+              </div>
+              <code>git switch &lt;name&gt;</code>
+              <p>Move to an existing branch.</p>
+            </li>
+            <li class="command-card">
+              <div class="command-card-top">
+                <span class="command-card-label">COMBINE</span
+                ><span class="command-card-number">09</span>
+              </div>
+              <div class="command-visual">
+                <svg viewBox="0 0 96 42" fill="none" aria-hidden="true">
+                  <path
+                    d="M14 7v28M14 21h22a17 17 0 0 0 17-17M36 21h17a17 17 0 0 1 17 17"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M70 38h12m-5-5 5 5-5 5"
+                    stroke="var(--color-accent)"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <circle
+                    cx="14"
+                    cy="7"
+                    r="3.5"
+                    fill="var(--color-card-bg)"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+                  <circle
+                    cx="53"
+                    cy="4"
+                    r="3.5"
+                    fill="var(--color-accent-bg)"
+                    stroke="var(--color-accent)"
+                    stroke-width="1.5"
+                  />
+                </svg>
+              </div>
+              <code>git merge &lt;name&gt;</code>
+              <p>Merge another branch into your current branch.</p>
+            </li>
+          </ul>
+        </section>
+
+        <section class="command-group" aria-labelledby="group-share-title">
+          <div class="command-group-heading">
+            <span class="group-index group-index-dark">04</span>
+            <div class="group-title-wrap">
+              <h3 id="group-share-title">Share and undo</h3>
+              <p>Sync with a remote repository and safely undo a change.</p>
+            </div>
+            <span class="group-count">03 COMMANDS</span>
+          </div>
+          <ul class="command-list">
+            <li class="command-card command-card-remote">
+              <div class="command-card-top">
+                <span class="command-card-label">UPLOAD</span
+                ><span class="command-card-number">10</span>
+              </div>
+              <div class="command-visual">
+                <svg viewBox="0 0 96 42" fill="none" aria-hidden="true">
+                  <rect
+                    x="7"
+                    y="21"
+                    width="27"
+                    height="14"
+                    rx="3"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                  />
+                  <path
+                    d="M13 26h15M13 30h9"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    opacity=".6"
+                  />
+                  <path
+                    d="M47 28V8m-7 7 7-7 7 7"
+                    stroke="var(--color-accent)"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M66 14a8 8 0 0 1 15-2 7 7 0 0 1 1 14H65a6 6 0 0 1 1-12"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M61 32h26"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    opacity=".4"
+                  />
+                </svg>
+              </div>
+              <code>git push</code>
+              <p>Send your local commits to the remote repository.</p>
+            </li>
+            <li class="command-card command-card-remote">
+              <div class="command-card-top">
+                <span class="command-card-label">UPDATE</span
+                ><span class="command-card-number">11</span>
+              </div>
+              <div class="command-visual">
+                <svg viewBox="0 0 96 42" fill="none" aria-hidden="true">
+                  <path
+                    d="M48 5v22m-7-7 7 7 7-7"
+                    stroke="var(--color-accent)"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M25 27h46l-5 9H30z"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M12 10a7 7 0 0 1 13-2 6 6 0 0 1 1 12H11a5 5 0 0 1 1-10"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    opacity=".65"
+                  />
+                </svg>
+              </div>
+              <code>git pull</code>
+              <p>
+                Fetch remote changes and integrate them into your current
+                branch.
+              </p>
+            </li>
+            <li class="command-card command-card-remote">
+              <div class="command-card-top">
+                <span class="command-card-label">UNDO SAFELY</span
+                ><span class="command-card-number">12</span>
+              </div>
+              <div class="command-visual">
+                <svg viewBox="0 0 96 42" fill="none" aria-hidden="true">
+                  <path
+                    d="M11 25h73"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    opacity=".35"
+                  />
+                  <circle
+                    cx="19"
+                    cy="25"
+                    r="4.5"
+                    fill="var(--color-card-bg)"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                  />
+                  <circle
+                    cx="48"
+                    cy="25"
+                    r="4.5"
+                    fill="var(--color-card-bg)"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                  />
+                  <circle
+                    cx="77"
+                    cy="25"
+                    r="4.5"
+                    fill="var(--color-accent-bg)"
+                    stroke="var(--color-accent)"
+                    stroke-width="1.8"
+                  />
+                  <path
+                    d="M77 18V12a8 8 0 0 0-8-8H34m6-4-6 4 6 4"
+                    stroke="var(--color-accent)"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <code>git revert &lt;commit&gt;</code>
+              <p>
+                Create a new commit that reverses the effects of an earlier
+                commit.
+              </p>
+            </li>
+          </ul>
+        </section>
+      </section>
+    </main>
 
     <footer class="footer">
       <p>
