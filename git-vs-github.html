@@ -3,51 +3,55 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Git vs GitHub</title>
+    <meta
+      name="description"
+      content="Git is the version control tool; GitHub is the platform that hosts Git repositories. Learn how they differ."
+    />
+    <link rel="icon" href="assets/git-svgrepo-com.svg" type="image/svg+xml" />
+    <title>git101 — Git vs GitHub</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <nav class="nav">
       <a href="index.html" class="logo">
-        <img src="assets/git-svgrepo-com.svg" alt="git logo" class="logo-img" />
+        <img src="assets/git-logo-nav.svg" alt="" class="logo-img" />
         git<span>101</span></a
       >
       <div class="navlinks">
         <a href="index.html">Home</a>
-        <a href="git-vs-github.html" class="active">Git vs GitHub</a>
+        <a href="git-vs-github.html" class="active" aria-current="page">Git vs GitHub</a>
         <a href="commands.html">Commands</a>
       </div>
     </nav>
     <div class="page">
       <main>
         <header class="git-header">
-          <div class="Git-vs-GitHub">
-            <h1>Git vs GitHub</h1>
-          </div>
+          <h1>Git vs GitHub</h1>
           <p>Two different things that are often confused for one another.</p>
         </header>
         <section class="comparison">
           <div class="git">
             <img
               src="assets/git-svgrepo-com.svg"
-              alt="git logo"
+              alt=""
               class="git-logo"
             />
+            <h2>Git</h2>
             <p>
               Git is a version control system that allows developers to track
               changes in their codebase, collaborate with others, and manage
-              different versions of their projects. It is a command-line tool
-              that runs locally on a developer's machine.
+              different versions of their projects. It runs locally on a developer's machine, usually through the command line, though graphical clients exist.
             </p>
           </div>
 
           <div class="github">
             <img
               src="assets/github.svg"
-              alt="github logo"
+              alt=""
               class="github-logo"
             />
-            <p class="content">
+            <h2>GitHub</h2>
+            <p>
               GitHub, on the other hand, is a web-based platform that provides
               hosting for Git repositories. It offers additional features such
               as issue tracking, pull requests, and collaboration tools. GitHub
@@ -70,11 +74,10 @@
             <p>LT</p>
           </div>
           <div class="creator-content">
-            <div class="linus">MEET THE CREATOR</div>
+            <div class="creator-label">MEET THE CREATOR</div>
             <h3 class="creator-name">Linus Torvalds</h3>
             <p>
-              Also the creator of the Linux kernel, Torvalds built git in 2005
-              to facilitate collaboration, which GitHub later popularized.
+              Also the creator of the Linux kernel, Torvalds built Git in 2005 after the kernel project lost free access to its previous version control tool, BitKeeper. GitHub later helped popularize it.
             </p>
           </div>
         </section>

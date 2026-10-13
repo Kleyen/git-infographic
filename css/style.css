@@ -8,31 +8,59 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
 }
 
 /* =========================================================================
-   2. DESIGN TOKENS (CSS variables)
+   2. DESIGN TOKENS
+   Light by default; the dark theme redefines the same tokens and follows
+   the OS setting via prefers-color-scheme — no JavaScript needed.
    ========================================================================= */
 :root {
-  /* Base colors */
-  --color-bg: #ffffff;
-  --color-text: #2c2c2a;
-  --color-text-secondary: #5f5e5a;
-  --color-border: #e3e1d9;
-  --color-card-bg: #faf9f5;
+  /* Warm paper + orange Git + black GitHub */
+  --color-bg: #fffaf6;
+  --color-text: #1d1b19;
+  --color-text-secondary: #625c57;
+  --color-border: #e8ddd4;
+  --color-card-bg: #fff;
+  --color-code-bg: #f3e9e1;
+  --color-on-accent: #fff;
 
-  /* Brand / accent colors */
-  --color-navy: #26215c;
-  --color-purple: #534ab7;
-  --color-purple-bg: #f1effb;
-  --color-teal: #1d9e75;
-  --color-coral: #d85a30;
-  --color-coral-bg: #fbede7;
-  --color-amber: #ba7517;
+  /* Brand accent (Git orange) and heading ink */
+  --color-heading: #1d1b19;
+  --color-accent: #d03e12;
+  --color-accent-bg: #fff0e8;
+  --color-github-bg: #171717;
+  --color-github-text: #fff;
+  --color-nav-text: #ded8d2;
 
   /* Shape & layout */
-  --radius: 12px;
-  --max-width: 900px;
+  --radius: 14px;
+  --max-width: 960px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --color-bg: #11100f;
+    --color-text: #f7f1ec;
+    --color-text-secondary: #bdb2aa;
+    --color-border: #37302b;
+    --color-card-bg: #1c1a18;
+    --color-code-bg: #2a2420;
+    --color-on-accent: #11100f;
+    --color-heading: #f7f1ec;
+    --color-accent: #ff7445;
+    --color-accent-bg: rgb(244 81 30 / 14%);
+    --color-github-bg: #201e1c;
+    --color-github-text: #f7f1ec;
+    --color-nav-text: #ded8d2;
+  }
 }
 
 /* =========================================================================
@@ -51,7 +79,8 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 20px 40px;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid #39312c;
+  background: var(--color-github-bg);
 }
 
 .logo {
@@ -60,7 +89,7 @@ body {
   gap: 8px;
   font-size: 20px;
   font-weight: bold;
-  color: var(--color-navy);
+  color: #fff;
   text-decoration: none;
 }
 
@@ -70,22 +99,29 @@ body {
 }
 
 .logo span {
-  color: var(--color-purple);
+  color: var(--color-accent);
 }
 
 .navlinks a {
   margin-left: 26px;
   font-size: 14px;
-  color: var(--color-text-secondary);
+  color: var(--color-nav-text);
   text-decoration: none;
 }
 
+/* Visible keyboard focus for all links */
+a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 .navlinks a:hover {
-  color: var(--color-navy);
+  color: var(--color-accent);
 }
 
 .navlinks a.active {
-  color: var(--color-navy);
+  color: var(--color-accent);
   font-weight: bold;
 }
 
@@ -103,29 +139,29 @@ body {
 }
 
 /* =========================================================================
-   6. GENERIC HEADER
-   Note: the bare "header" selector applies to every <header> element.
+   6. HERO (home page)
    ========================================================================= */
-header {
+.hero {
   padding: 60px 20px;
   text-align: center;
 }
 
-/* =========================================================================
-   7. HOME / HERO  (not used by the uploaded pages)
-   ========================================================================= */
 .hero-intro {
   font-size: 18px;
   font-weight: bold;
-  color: var(--color-navy);
+  color: var(--color-heading);
   margin: 12px auto;
 }
 
 .hero-title {
   font-size: 50px;
   font-weight: bold;
-  color: var(--color-navy);
+  color: var(--color-heading);
   margin: 12px auto;
+}
+
+.hero-accent {
+  color: var(--color-accent);
 }
 
 .hero-text {
@@ -135,10 +171,10 @@ header {
   max-width: 600px;
 }
 
-.command {
+.cta {
   display: inline-block;
-  background: var(--color-navy);
-  color: #ffffff;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
   border: none;
   padding: 14px 30px;
   font-size: 15px;
@@ -147,11 +183,15 @@ header {
   text-decoration: none;
 }
 
+.cta:hover {
+  filter: brightness(1.15); /* works in both light and dark themes */
+}
+
 /* =========================================================================
-   8. GIT VS GITHUB PAGE
+   7. GIT VS GITHUB PAGE
    ========================================================================= */
 
-/* 8a. Page header */
+/* 7a. Page header */
 .git-header {
   padding: 30px 20px;
   text-align: center;
@@ -159,7 +199,7 @@ header {
   margin-bottom: 10px;
 }
 
-/* 8b. Side-by-side comparison cards */
+/* 7b. Side-by-side comparison cards */
 .comparison {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -168,14 +208,16 @@ header {
 }
 
 .git {
-  background-color: var(--color-purple-bg);
+  background-color: var(--color-accent-bg);
+  border: 1px solid rgb(244 81 30 / 18%);
   border-radius: var(--radius);
   padding: 24px 20px;
   text-align: center;
 }
 
 .github {
-  background-color: var(--color-coral-bg);
+  background-color: var(--color-github-bg);
+  color: var(--color-github-text);
   border-radius: var(--radius);
   padding: 24px 20px;
   text-align: center;
@@ -197,7 +239,30 @@ header {
   color: var(--color-text-secondary);
 }
 
-/* 8c. Summary box */
+.github p {
+  color: var(--color-github-text);
+  opacity: 0.82;
+}
+
+.git h2,
+.github h2 {
+  margin: 0 0 14px;
+  font-size: 22px;
+}
+
+.git h2 {
+  color: var(--color-accent);
+}
+
+.github h2 {
+  color: var(--color-github-text);
+}
+
+.github-logo {
+  filter: brightness(0) invert(1);
+}
+
+/* 7c. Summary box */
 .summary {
   margin: 22px 60px 40px;
   background: var(--color-card-bg);
@@ -214,7 +279,7 @@ header {
   line-height: 1.6;
 }
 
-/* 8d. "Meet the creator" box */
+/* 7d. "Meet the creator" box */
 .creator {
   margin: 22px 60px 40px;
   background: var(--color-card-bg);
@@ -230,8 +295,8 @@ header {
   width: 58px;
   height: 58px;
   border-radius: 50%;
-  background-color: var(--color-teal);
-  color: #ffffff;
+  background-color: var(--color-accent);
+  color: var(--color-on-accent);
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -239,11 +304,11 @@ header {
   flex-shrink: 0;
 }
 
-.linus {
+.creator-label {
   font-size: 11px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: var(--color-teal);
+  color: var(--color-accent);
   font-weight: bold;
   margin-bottom: 4px;
 }
@@ -256,94 +321,521 @@ header {
 }
 
 /* =========================================================================
-   9. COMMANDS PAGE
+   8. COMMANDS PAGE
+   A static, responsive command map and grouped quick-reference cards.
    ========================================================================= */
-
-/* 9a. Scoped theme variables + page container */
 .commands {
-  --commands-text: #252532;
-  --commands-muted: #5f5f6b;
-  --commands-accent: #3d3a8c;
-  --commands-card-bg: #faf9f5;
-  --commands-card-border: #e5e5ea;
-  --commands-code-bg: #eeece4;
-
-  max-width: 1100px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 0 20px 56px;
+  padding: 0 24px 64px;
 }
 
-/* 9b. Title block */
 .commands-header {
-  padding: 56px 0 24px;
+  padding: 56px 0 32px;
   text-align: center;
 }
 
+.commands-eyebrow,
+.section-kicker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin: 0 0 14px;
+  color: var(--color-accent);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.commands-eyebrow > span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 0 4px var(--color-accent-bg);
+}
+
 .commands-header h1 {
-  margin: 0 0 12px;
-  font-size: 34px;
-  color: var(--commands-text);
-}
-
-.commands-header p {
   margin: 0;
-  color: var(--commands-muted);
+  color: var(--color-text);
+  font-size: clamp(38px, 5.5vw, 54px);
+  letter-spacing: -0.045em;
+  line-height: 1.08;
 }
 
-/* 9c. Section groups (Get started, Save your work, etc.) */
-.command-group {
-  margin-top: 40px;
+.commands-header h1 span {
+  color: var(--color-accent);
 }
 
-.command-group h2 {
-  margin: 0 0 16px;
+.commands-intro {
+  max-width: 560px;
+  margin: 16px auto 0;
+  color: var(--color-text-secondary);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.commands-hero-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-top: 22px;
+}
+
+.meta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-card-bg);
+  color: var(--color-text);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.meta-pill > span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.meta-note {
+  color: var(--color-text-secondary);
+  font-size: 12px;
+}
+
+.command-map {
+  margin: 10px 0 58px;
+  padding: 32px;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  background: var(--color-card-bg);
+  box-shadow: 0 14px 40px rgb(35 21 11 / 4%);
+}
+
+.section-heading {
+  margin-bottom: 26px;
+}
+
+.section-heading-centered {
+  text-align: center;
+}
+
+.section-heading .section-kicker {
+  margin-bottom: 10px;
+}
+
+.section-heading h2,
+.library-heading h2 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: clamp(24px, 3vw, 32px);
+  letter-spacing: -0.035em;
+  line-height: 1.2;
+}
+
+.section-heading > p:last-child {
+  margin: 10px 0 0;
+  color: var(--color-text-secondary);
   font-size: 14px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--commands-accent);
+  line-height: 1.6;
 }
 
-/* 9d. Card grid */
+.command-flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.command-stage {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 19px 18px 17px;
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-accent);
+  border-radius: 13px;
+  background: var(--color-bg);
+}
+
+.command-stage:not(:last-child)::after {
+  position: absolute;
+  top: 43%;
+  right: -19px;
+  z-index: 2;
+  display: flex;
+  width: 20px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: var(--color-card-bg);
+  color: var(--color-accent);
+  content: "→";
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.command-stage-top {
+  display: flex;
+  min-height: 54px;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 17px;
+}
+
+.command-stage-number {
+  display: inline-flex;
+  width: 31px;
+  height: 31px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  background: var(--color-accent-bg);
+  color: var(--color-accent);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.stage-icon {
+  width: 38px;
+  height: 38px;
+  padding: 4px;
+  color: var(--color-accent);
+}
+
+.stage-icon-github {
+  padding: 4px;
+  filter: brightness(0) invert(1);
+}
+
+.command-stage h3 {
+  margin: 0 0 8px;
+  color: var(--color-text);
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.command-stage > p {
+  min-height: 62px;
+  margin: 0 0 18px;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.stage-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 13px;
+  border-top: 1px solid var(--color-border);
+}
+
+.stage-action > span {
+  color: var(--color-text-secondary);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+}
+
+.stage-action code {
+  max-width: 100%;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: var(--color-accent-bg);
+  color: var(--color-accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.command-stage-remote {
+  border-color: #171717;
+  border-top-color: var(--color-accent);
+  background: #171717;
+}
+
+.command-stage-remote h3,
+.command-stage-remote > p,
+.command-stage-remote .stage-action > span {
+  color: #fff;
+}
+
+.command-stage-remote > p {
+  color: #d3d0ce;
+}
+
+.command-stage-remote .stage-action {
+  border-top-color: #494441;
+}
+
+.stage-action-remote strong {
+  color: #fff;
+  font-size: 13px;
+}
+
+.command-quick-tips {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.quick-tip {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 15px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: var(--color-card-bg);
+}
+
+.quick-tip-mark {
+  display: flex;
+  width: 31px;
+  height: 31px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  background: var(--color-accent-bg);
+  color: var(--color-accent);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.quick-tip-mark-dark {
+  background: #171717;
+  color: #fff;
+}
+
+.quick-tip p {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+}
+
+.quick-tip code {
+  color: var(--color-accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.quick-tip p span {
+  color: var(--color-text-secondary);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.command-library {
+  padding-bottom: 8px;
+}
+
+.library-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 25px;
+}
+
+.library-heading .section-kicker {
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.library-heading > p {
+  max-width: 300px;
+  margin: 0 0 3px;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.command-group {
+  margin-top: 32px;
+}
+
+.command-group-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 15px;
+}
+
+.group-index {
+  display: flex;
+  width: 43px;
+  height: 43px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-accent-bg);
+  color: var(--color-accent);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.group-index-dark {
+  border-color: #171717;
+  background: #171717;
+  color: #fff;
+}
+
+.group-title-wrap {
+  min-width: 0;
+  flex: 1;
+}
+
+.group-title-wrap h3 {
+  margin: 0 0 4px;
+  color: var(--color-text);
+  font-size: 19px;
+  letter-spacing: -0.025em;
+}
+
+.group-title-wrap p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.group-count {
+  flex: 0 0 auto;
+  padding: 7px 9px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  color: var(--color-text-secondary);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
 .command-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .command-card {
-  padding: 20px 22px;
-  border: 1px solid var(--commands-card-border);
-  border-radius: 10px;
-  background: var(--commands-card-bg);
+  position: relative;
+  min-width: 0;
+  min-height: 190px;
+  padding: 18px 19px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-card-bg);
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.command-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-accent);
+  box-shadow: 0 8px 22px rgb(35 21 11 / 6%);
+}
+
+.command-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+/* Static command illustrations: one small visual cue per command card. */
+.command-visual {
+  display: flex;
+  min-height: 42px;
+  align-items: center;
+  margin: -2px 0 8px;
+  color: var(--color-text);
+}
+
+.command-visual svg {
+  display: block;
+  width: 96px;
+  max-width: 100%;
+  height: 42px;
+  overflow: visible;
+}
+
+.command-card-remote .command-visual {
+  color: var(--color-text);
+}
+
+.command-card-label {
+  color: var(--color-accent);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.command-card-number {
+  color: var(--color-text-secondary);
+  font-size: 10px;
+  font-weight: 700;
+  opacity: 0.75;
 }
 
 .command-card code {
   display: inline-block;
-  margin-bottom: 8px;
-  padding: 4px 10px;
+  max-width: 100%;
+  margin-bottom: 10px;
+  padding: 6px 8px;
+  border: 1px solid var(--color-border);
   border-radius: 6px;
-  background: var(--commands-code-bg);
-  color: var(--commands-text);
-  font-family: ui-monospace, Menlo, Consolas, monospace;
-  font-size: 14px;
+  background: var(--color-code-bg);
+  color: var(--color-text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.45;
   overflow-wrap: anywhere;
 }
 
 .command-card p {
   margin: 0;
-  font-size: 14px;
-  color: var(--commands-muted);
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.command-card-remote {
+  border-top: 2px solid var(--color-github-bg);
+  background: var(--color-card-bg);
 }
 
 /* =========================================================================
-   10. FEATURE CARDS & MISC 
+   9. FEATURE CARDS (home page)
    ========================================================================= */
 .git-features {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 16px;
   padding: 0 60px 40px;
 }
@@ -351,8 +843,9 @@ header {
 .feature-card {
   background-color: var(--color-card-bg);
   border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-accent);
   border-radius: var(--radius);
-  padding: 28px 34px;
+  padding: 28px 30px;
 }
 
 .feature-card h2 {
@@ -369,21 +862,115 @@ header {
 }
 
 .feature-logo {
+  display: block;
+  width: 40px;
   height: 40px;
-  width: auto;
   margin-bottom: 12px;
+  color: var(--color-accent);
 }
 
-.creator-text {
-  margin: 0 0 0 6px;
-  font-size: 17px;
+/* Tablet layout: retain the flow diagram while giving each stage room. */
+@media (width <= 850px) {
+  .command-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .command-stage:not(:last-child)::after {
+    content: none;
+  }
+
+  .command-stage > p {
+    min-height: 0;
+  }
+
+  .command-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 /* =========================================================================
-   11. RESPONSIVE (max-width: 600px)
+   10. RESPONSIVE (max-width: 600px)
    Grouped at the end so these overrides win over the base rules above.
    ========================================================================= */
 @media (width <= 600px) {
+  .commands {
+    padding: 0 18px 44px;
+  }
+
+  .commands-header {
+    padding: 42px 0 26px;
+  }
+
+  .commands-intro {
+    font-size: 14px;
+  }
+
+  .command-map {
+    margin-bottom: 42px;
+    padding: 21px 16px;
+    border-radius: 15px;
+  }
+
+  .command-flow {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .command-stage {
+    padding: 16px;
+  }
+
+  .command-stage:not(:last-child)::after {
+    content: none;
+  }
+
+  .command-stage-top {
+    min-height: 42px;
+    margin-bottom: 12px;
+  }
+
+  .command-stage > p {
+    min-height: 0;
+    margin-bottom: 16px;
+  }
+
+  .command-quick-tips,
+  .command-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .library-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .command-group-heading {
+    gap: 10px;
+  }
+
+  .group-index {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+  }
+
+  .group-count {
+    display: none;
+  }
+
+  .command-card {
+    min-height: 0;
+  }
+
+  .command-visual {
+    min-height: 38px;
+  }
+
+  .command-visual svg {
+    height: 38px;
+  }
+
   .nav {
     flex-direction: column;
     gap: 12px;
@@ -394,12 +981,16 @@ header {
     margin: 0 12px;
   }
 
-  header {
+  .hero {
     padding: 40px 20px;
   }
 
   .hero-title {
     font-size: 36px;
+  }
+
+  .git-features {
+    padding: 0 20px 30px;
   }
 
   .comparison {
@@ -413,3 +1004,4 @@ header {
     margin-right: 20px;
   }
 }
+
