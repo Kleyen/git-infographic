@@ -184,7 +184,8 @@ a:focus-visible {
 }
 
 .cta:hover {
-  filter: brightness(1.15); /* works in both light and dark themes */
+  filter: brightness(1.15);
+  /* works in both light and dark themes */
 }
 
 /* =========================================================================
@@ -348,7 +349,7 @@ a:focus-visible {
   letter-spacing: 0.15em;
 }
 
-.commands-eyebrow > span {
+.commands-eyebrow>span {
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -398,7 +399,7 @@ a:focus-visible {
   font-weight: 700;
 }
 
-.meta-pill > span {
+.meta-pill>span {
   width: 7px;
   height: 7px;
   border-radius: 50%;
@@ -440,7 +441,7 @@ a:focus-visible {
   line-height: 1.2;
 }
 
-.section-heading > p:last-child {
+.section-heading>p:last-child {
   margin: 10px 0 0;
   color: var(--color-text-secondary);
   font-size: 14px;
@@ -526,7 +527,7 @@ a:focus-visible {
   line-height: 1.3;
 }
 
-.command-stage > p {
+.command-stage>p {
   min-height: 62px;
   margin: 0 0 18px;
   color: var(--color-text-secondary);
@@ -544,7 +545,7 @@ a:focus-visible {
   border-top: 1px solid var(--color-border);
 }
 
-.stage-action > span {
+.stage-action>span {
   color: var(--color-text-secondary);
   font-size: 9px;
   font-weight: 800;
@@ -570,12 +571,12 @@ a:focus-visible {
 }
 
 .command-stage-remote h3,
-.command-stage-remote > p,
-.command-stage-remote .stage-action > span {
+.command-stage-remote>p,
+.command-stage-remote .stage-action>span {
   color: #fff;
 }
 
-.command-stage-remote > p {
+.command-stage-remote>p {
   color: #d3d0ce;
 }
 
@@ -663,7 +664,7 @@ a:focus-visible {
   margin-bottom: 10px;
 }
 
-.library-heading > p {
+.library-heading>p {
   max-width: 300px;
   margin: 0 0 3px;
   color: var(--color-text-secondary);
@@ -835,7 +836,7 @@ a:focus-visible {
    ========================================================================= */
 .git-features {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
   gap: 16px;
   padding: 0 60px 40px;
 }
@@ -870,7 +871,7 @@ a:focus-visible {
 }
 
 /* Tablet layout: retain the flow diagram while giving each stage room. */
-@media (width <= 850px) {
+@media (width <=850px) {
   .command-flow {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -879,7 +880,7 @@ a:focus-visible {
     content: none;
   }
 
-  .command-stage > p {
+  .command-stage>p {
     min-height: 0;
   }
 
@@ -892,7 +893,7 @@ a:focus-visible {
    10. RESPONSIVE (max-width: 600px)
    Grouped at the end so these overrides win over the base rules above.
    ========================================================================= */
-@media (width <= 600px) {
+@media (width <=600px) {
   .commands {
     padding: 0 18px 44px;
   }
@@ -929,7 +930,7 @@ a:focus-visible {
     margin-bottom: 12px;
   }
 
-  .command-stage > p {
+  .command-stage>p {
     min-height: 0;
     margin-bottom: 16px;
   }
@@ -1004,4 +1005,3 @@ a:focus-visible {
     margin-right: 20px;
   }
 }
-
