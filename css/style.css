@@ -1,6 +1,7 @@
 /* =========================================================================
    1. RESET & BASE
    ========================================================================= */
+
 * {
   box-sizing: border-box;
 }
@@ -20,6 +21,7 @@ body {
    Light by default; the dark theme redefines the same tokens and follows
    the OS setting via prefers-color-scheme — no JavaScript needed.
    ========================================================================= */
+
 :root {
   /* Warm paper + orange Git + black GitHub */
   --color-bg: #fffaf6;
@@ -66,6 +68,7 @@ body {
 /* =========================================================================
    3. LAYOUT WRAPPER
    ========================================================================= */
+
 .page {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -74,6 +77,7 @@ body {
 /* =========================================================================
    4. NAVIGATION BAR (shared across all pages)
    ========================================================================= */
+
 .nav {
   display: flex;
   align-items: center;
@@ -128,6 +132,7 @@ a:focus-visible {
 /* =========================================================================
    5. FOOTER (shared across all pages)
    ========================================================================= */
+
 .footer {
   display: flex;
   flex-direction: column;
@@ -141,6 +146,7 @@ a:focus-visible {
 /* =========================================================================
    6. HERO (home page)
    ========================================================================= */
+
 .hero {
   padding: 60px 20px;
   text-align: center;
@@ -185,8 +191,9 @@ a:focus-visible {
 
 .cta:hover {
   filter: brightness(1.15);
-  /* works in both light and dark themes */
 }
+
+/* works in both light and dark themes */
 
 /* =========================================================================
    7. GIT VS GITHUB PAGE
@@ -325,6 +332,7 @@ a:focus-visible {
    8. COMMANDS PAGE
    A static, responsive command map and grouped quick-reference cards.
    ========================================================================= */
+
 .commands {
   max-width: 1120px;
   margin: 0 auto;
@@ -897,6 +905,7 @@ a:focus-visible {
    10. RESPONSIVE (max-width: 600px)
    Grouped at the end so these overrides win over the base rules above.
    ========================================================================= */
+
 @media (width <=600px) {
   .commands {
     padding: 0 18px 44px;
@@ -1009,4 +1018,3 @@ a:focus-visible {
     margin-right: 20px;
   }
 }
-
